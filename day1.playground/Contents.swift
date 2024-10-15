@@ -63,3 +63,36 @@ var internshipStartedStatus = false
 internshipStartedStatus.toggle()
 
 print("Has internship started ? -> Status: \(internshipStartedStatus)")
+
+// Join Strings
+
+let namePart1 = "Agile"
+let namePart2 = "Freaks"
+let fullPart = namePart1 + " " + namePart2
+print(fullPart)
+
+// String interpolation
+let name = "Cosmo"
+let position = "iOS Intern"
+let days = 1
+
+// to combine strings with numbers, we need to do type casting
+// but with string interpolation, explicit casting is not needed
+
+print("Name: \(name), Position: iOS Intern, Days: \(days)")
+
+// ---------CHECKPOINT 1---------------
+
+let celsiusTemperature = 30.0
+
+let tempFahrenheit = ((celsiusTemperature * 9) / 5) + 32
+// Verification if the first conversion is good
+let fahrenheitToCelsius = (tempFahrenheit - 32) / (9 / 5)
+
+
+let messageCtoF = "Celcius: \(celsiusTemperature)°C -> Fahrenheit: \(tempFahrenheit)°F"
+let meesageFtoC = "Fahrenheit: \(tempFahrenheit)°F -> Celsius: \(fahrenheitToCelsius)°C"
+
+print(messageCtoF)
+
+print(meesageFtoC)
