@@ -81,6 +81,18 @@ let days = 1
 
 print("Name: \(name), Position: iOS Intern, Days: \(days)")
 
+// ---------CHECKPOINT 1---------------
+
+let celsiusTemperature = 30.0
+
+let tempFahrenheit = ((celsiusTemperature * 9) / 5) + 32
+// Verification if the first conversion is good
+let fahrenheitToCelsius = (tempFahrenheit - 32) / (9 / 5)
 
 
+let messageCtoF = "Celcius: \(celsiusTemperature)°C -> Fahrenheit: \(tempFahrenheit)°F"
+let meesageFtoC = "Fahrenheit: \(tempFahrenheit)°F -> Celsius: \(fahrenheitToCelsius)°C"
 
+print(messageCtoF)
+
+print(meesageFtoC)
