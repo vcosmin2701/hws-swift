@@ -57,3 +57,9 @@ let b = 2.0
 // let c = a + b -> error: can't mix int with double
 let c = Double(a) + b
 print(c)
+
+// Booleans
+var internshipStartedStatus = false
+internshipStartedStatus.toggle()
+
+print("Has internship started ? -> Status: \(internshipStartedStatus)")
