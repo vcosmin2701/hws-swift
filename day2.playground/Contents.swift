@@ -56,3 +56,21 @@ teamChampionshipWins["RedBull"] = 3
 teamChampionshipWins["McLaren"] = 1
 
 
+//----------Sets-------------------------
+
+let devices = Set([
+    "MacBook Pro 16",
+    "iPhone Xs"
+])
+
+print(devices)
+
+var animals = Set<String>()
+animals.insert("Dog")
+animals.insert("Chinchilla")
+animals.insert("Dog")
+
+print(animals)
+
+
+
