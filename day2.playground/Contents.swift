@@ -37,11 +37,22 @@ print(teams)
 var reversedTeams = teams.reversed()
 print(Array(reversedTeams))
 
+//----------Dictionaries--------------
 
+let intern = [
+    "name": "Cosmin",
+    "job": "iOS Intern",
+    "location": "Sibiu"
+]
 
+print(intern["name", default: "unknown"])
+print(intern["job", default: "unknown"])
+print(intern["location", default: "unknown"])
 
+// Explicit types for dictionary
 
-
-
+var teamChampionshipWins = [String: Int]()
+teamChampionshipWins["RedBull"] = 3
+teamChampionshipWins["McLaren"] = 1
 
 
