@@ -48,3 +48,20 @@ case "Dog":
 default:
     print("Something cause it to be like this")
 }
+
+// Ternary operator
+
+let age = 18
+let canVote = age >= 18 ? "Yes" : "No"
+print(canVote)
+
+
+enum Theme {
+    case light, dark
+}
+
+let theme = Theme.dark
+
+let background = theme == .dark ? "black" : "white"
+print(background)
+
