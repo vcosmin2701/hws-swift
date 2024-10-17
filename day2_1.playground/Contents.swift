@@ -35,3 +35,21 @@ let username: String
 username = "@cosmo"
 
 print(username)
+
+// ------ CHECKPOINT 2 -----------
+
+func countAnimals(animals: [String]) {
+    print("Animals count: \(animals.count)")
+}
+
+let animals: [String] = ["Chinchilla", "Dog", "Hedgehog", "Hedgehog", "Dog"]
+var count: Int = animals.count
+
+// Count all the elements in the array
+countAnimals(animals: animals)
+
+let uniqueAnimals = Set(animals)
+
+print(uniqueAnimals)
+print("Number of unique animals: \(uniqueAnimals.count)")
+
