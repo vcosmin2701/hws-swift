@@ -73,4 +73,13 @@ animals.insert("Dog")
 print(animals)
 
 
+// --------Enums--------------------------
 
+enum Weekday {
+    case monday, tuesday, wednesday, thursday, friday
+}
+
+var day = Weekday.monday
+day = Weekday.friday
+day = .thursday
+print(day)
