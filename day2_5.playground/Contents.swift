@@ -49,3 +49,28 @@ do {
 } catch {
     print("thERre is an error: \(error.localizedDescription)")
 }
+
+
+// ------CHECKPOINT 4--------------
+
+
+enum Errors: Error {
+    case outOfRange, noRoot
+}
+
+func customSquareRoot(number: Int) throws -> Int {
+    if number < 1 || number > 10_000 {
+        throw Errors.outOfRange
+    } else if number >= 1 && number <= 10_000{
+        return Int(pow(Double(number), 1/2))
+    } else {
+        throw Errors.noRoot
+    }
+}
+
+do {
+    let result = try customSquareRoot(number: 169)
+    print(result)
+} catch {
+    print(error)
+}
