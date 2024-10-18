@@ -53,4 +53,15 @@ func pythagoras(a: Double, b: Double) -> Double {
 let c = pythagoras(a: 3, b: 4)
 print(c)
 
+// ----- Return multiple values from functions -------
+
+func getUser() -> (firstName: String, lastName: String) {
+    (firstName: "Cosmo", lastName: "27")
+    // ("Cosmo", "27")
+}
+
+// let user = getUser()
+let (first, last) = getUser()
+let (f, _) = getUser() // if just one thing is needed from the return of function
+
 
