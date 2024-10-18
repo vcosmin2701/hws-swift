@@ -64,4 +64,21 @@ func getUser() -> (firstName: String, lastName: String) {
 let (first, last) = getUser()
 let (f, _) = getUser() // if just one thing is needed from the return of function
 
+// ------- Customize parameter labels -----
+
+let lyric = "I see fireeeee"
+print(lyric.hasPrefix("I see"))
+
+func isUppercase(_ string: String) -> Bool {
+    string == string.uppercased()
+}
+
+// string is internal, and this is external
+func isUppercased(this string: String) -> Bool {
+    string == string.uppercased()
+}
+
+let string = "agile freaks"
+let result1 = isUppercased(this: string)
+print(result1)
 
