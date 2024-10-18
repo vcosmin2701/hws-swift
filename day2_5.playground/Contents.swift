@@ -17,3 +17,35 @@ print(animals.count)
 animals.removeAll(keepingCapacity: true)
 print(animals.count)
 
+// ------ Handle errors in functions
+
+// 1. definde all the errors that might happen
+// 2. write a function that flag up errors if they happen
+// 3. call the function
+
+
+enum PasswordError: Error {
+    case short, obvious
+}
+
+func checkPassword(_ password: String) throws -> String {
+    if password.count < 5 {throw PasswordError.short}
+    if password == "12345" {throw PasswordError.obvious}
+    
+    if password.count < 8 {
+        return "OK"
+    } else if password.count < 10 {
+        return "Good"
+    } else {
+        return "Excellent"
+    }
+}
+
+do {
+    let result = try checkPassword("12345")
+    print("Passowrd rating: \(result)")
+} catch PasswordError.obvious {
+    print("Too obvious")
+} catch {
+    print("thERre is an error: \(error.localizedDescription)")
+}
