@@ -84,3 +84,48 @@ let captainFirstTeam1 = team.sorted(by: { (name1: String, name2: String) -> Bool
 })
 
 print(captainFirstTeam1)
+
+// ------- Trailing closures---------
+      
+// If the function sorted(by: ) -> accepts two strings and returns a bool
+// we can easily delele the types of the parameters and also the type returned
+
+let captainFirstTeam2 = team.sorted { name1, name2 in
+    if name1 == "Suzanne"{
+        return true
+    } else if name2 == "Suzanne" {
+        return true
+    }
+    
+    return name1 < name2
+}
+
+// ------- Shorthand syntax ----------
+
+let captainFirstTeam3 = team.sorted {
+    if $0 == "Suzanne" {
+        return true
+    } else if $1 == "Suzanne" {
+        return false
+    }
+    
+    return $0 < $1
+}
+
+let reverseTeam = team.sorted { return $0 > $1 }
+
+// Filter
+// What does the filter method do?
+// Let us run some code on every item in the array, and will send back a new array containing
+// every item that returns true for the function
+
+let tOnly = team.filter { $0.hasPrefix("T") }
+print(tOnly)
+
+// Map
+// What does the map method do ?
+// map let us to transform every item in the array using some code of out choosing
+// and sends back a new array with all the transformed items
+
+let uppercasedTeam = team.map { $0.uppercased() }
+print(uppercasedTeam)
