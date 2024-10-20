@@ -1,46 +1,86 @@
 import Foundation
 
-let sayHello = { (name: String) -> String in
+// Closures
+
+func greetUser() {
+    print("Hi there!")
+}
+
+greetUser()
+
+var greetCopy = greetUser // in this way we are creating a copy of greetUser
+greetUser()
+
+// --------- The simple way using closure ----------
+
+
+// Closure as anonymous function
+let sayHello = {
+    print("Hi there!!")
+}
+
+sayHello()
+
+// Closure with parameter
+
+let sayHelloParam = { (name: String) -> String in
     "Hi \(name)!"
 }
 
-struct Student {
-    let name: String
-    let testScore: Int
+// in keyword marks the end of the parameter and return type
+// everything after the in keyword is the closure body itself
+
+sayHelloParam("Cosmo")
+
+// var greetCopy: () -> Void = greetUser
+// function that takes no parameter, and return nothing -> Void
+
+func getUserData(for id: Int) -> String {
+    if id == 1989 {
+        return "Ozn"
+    } else {
+        return "Anonymous"
+    }
 }
 
-let students = [
-    Student(name: "user1", testScore: 23),
-    Student(name: "user2", testScore: 65),
-    Student(name: "eser13", testScore: 53),
-    Student(name: "ufser41", testScore: 32),
-    Student(name: "usfer124", testScore: 12),
-    Student(name: "userf32", testScore: 99)
-]
+let data: (Int) -> String = getUserData
+let user = data(1989)
+print(user)
 
-// (any parameter function takes in) -> (return type)
-var topStudentFilter: (Student) -> Bool = { student in
-    return student.testScore > 80
+// external parameter name matters only when we call directly a function, and not for closures
+// or a copy of a function
+
+
+// Sorted example\
+
+let team = ["Gloria", "Suzanne", "Piper", "Tiffany", "Tasha"]
+let sortedTeam = team.sorted()
+print(sortedTeam)
+
+func captainFirstSorted(name1: String, name2: String) -> Bool {
+    if name1 == "Suzanne" {
+        return true
+    } else if name2 == "Suzanne" {
+        return false
+    }
+    
+    return name1 < name2
 }
 
-// comparasion with a function
-func topStudent(student: Student) -> Bool {
-    return student.testScore > 80
-}
+// Function passed into another function
+let captainFirstTeam = team.sorted(by: captainFirstSorted)
+print(captainFirstTeam)
 
-let topStudents = students.filter(topStudentFilter)
+// Closures can be passed inside another function
 
-for student in topStudents {
-    print(student.name)
-}
+let captainFirstTeam1 = team.sorted(by: { (name1: String, name2: String) -> Bool in
+    if name1 == "Suzanne" {
+        return true
+    } else if name2 == "Suzanne" {
+        return false
+    }
+    
+    return name1 < name2
+})
 
-// shorthand syntax , trailing closure syntax
-
-let topStudents1 = students.filter { student in
-    return student.testScore > 80
-}
-
-let topStudents2 = students.filter {
-    $0.testScore > 80
-}
-
+print(captainFirstTeam1)
