@@ -181,3 +181,25 @@ doImportantWork {
 } third: {
     print("This is the third work!")
 }
+
+
+// Checkpoint 5
+
+// Filter out any numbers that are even ( delete them )
+// Sort the array in descending order
+// Map them to the specified format: \(number) is a lucky number
+// Print the resulting array, one item per line
+
+let luckyNumbers = [7, 4, 38, 21, 16, 15, 12, 33, 31, 49]
+
+let oddNumbers = luckyNumbers.sorted {
+    return $0 < $1
+}.filter {
+    return !$0.isMultiple(of: 2)
+}.map {
+    return "\($0) is a lucky number"
+}
+
+for number in oddNumbers {
+    print(number)
+}
