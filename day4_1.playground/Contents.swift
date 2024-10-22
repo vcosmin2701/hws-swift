@@ -137,3 +137,60 @@ let mac = Mac() // does not affect if the object itself is an object
 mac.name = "MacBook Pro 14"
 print(mac.name)
 
+// ------ Checkpoint-8 ---------
+
+// Parent class
+class Animal {
+    var legs: Int
+    
+    init(legs: Int) {
+        self.legs = legs
+    }
+}
+
+class Dog: Animal {
+    func speak() {
+        print("Hamm Hammm")
+    }
+}
+
+class Cat: Animal {
+    var isTamed: Bool
+    
+    init(isTamed: Bool) {
+        self.isTamed = isTamed
+        super.init(legs: 4)
+    }
+    
+    func speak() {
+        print("Meow Meow")
+    }
+}
+
+class Corgi: Dog {
+    override func speak(){
+        print("HaaaammmHaaaammm")
+    }
+}
+
+class Poodle: Dog {
+    override func speak(){
+        print("Woff wOFF")
+    }
+}
+
+class Persian: Cat {
+    override func speak(){
+        print("Prrrr...Meoww")
+    }
+}
+
+class Lion: Cat {
+    override func speak(){
+        print("Roarrr")
+    }
+}
+
+
+var cat = Persian(isTamed: true)
+print(cat.isTamed, cat.legs)
