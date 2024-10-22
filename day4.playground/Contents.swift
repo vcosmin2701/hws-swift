@@ -150,3 +150,78 @@ var status: () = success ? print("Withdrew money successfully") : print("Failed 
 
 //account.funds -= 1000
 //print(account.funds)
+
+// [Day11] --------- Static properties and methods
+
+struct School {
+    @MainActor static var studentCount = 0
+    
+    @MainActor static func add(student: String) {
+        print("\(student) joined the school.")
+        studentCount += 1
+    }
+}
+
+School.add(student: "Matiz")
+print(School.studentCount)
+
+// Examples where static properties are used
+
+// shared values across the app
+struct AppData {
+    static let version = "1.3 beta 3"
+    static let saveFilename = "settings.json"
+    static let homeURL = "https://www.af.com"
+}
+
+// example of current struct
+
+struct Employee2 {
+    let username: String
+    let password: String
+    
+    static let example = Employee2(username: "cfr", password: "tooSlow2024")
+}
+
+// Checkpoint-6
+
+enum GearBox {
+    case upshift, downshift
+}
+
+struct Car {
+    let model: String
+    let numOfSeats: Int
+    var currentGear: Int = 0
+    
+    mutating func changeGears(shift: GearBox) {
+        switch shift {
+        case .upshift:
+            if currentGear < 10 {
+                currentGear += 1
+                print("Upshifted. Current gear: \(currentGear)")
+            } else {
+                print("Maximum gears reached, please downshift.")
+            }
+        case .downshift:
+            if currentGear > 0 {
+                currentGear -= 1
+                print("Downshifted. Current gear: \(currentGear)")
+            } else {
+                print("Neutral has been reached, please upshift.")
+            }
+        }
+    }
+}
+
+var car1 = Car(model: "Turbo S 911", numOfSeats: 2)
+
+for _ in 1...11 {
+    car1.changeGears(shift: .upshift)
+}
+
+for _ in 1...11 {
+    car1.changeGears(shift: .downshift)
+}
+
+
