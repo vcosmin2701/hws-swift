@@ -119,3 +119,34 @@ struct Player {
 
 let player = Player(name: "Matiz")
 print(player.number)
+
+
+// [Day11] ----- Limit access to internal data
+
+struct BankAccount {
+    private var funds = 0
+    
+    // public
+    mutating func deposit(amount: Int) {
+        funds += amount
+    }
+    
+    // public
+    mutating func withdraw(amount: Int) -> Bool {
+        if funds >= amount {
+            funds -= amount
+            return true
+        } else {
+            return false
+        }
+    }
+}
+
+var account = BankAccount()
+account.deposit(amount: 100)
+let success = account.withdraw(amount: 200)
+
+var status: () = success ? print("Withdrew money successfully") : print("Failed to get the money")
+
+//account.funds -= 1000
+//print(account.funds)
