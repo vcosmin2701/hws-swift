@@ -50,3 +50,28 @@ let pufarina = Developer(hours: 2)
 cosmo.work()
 jojo.work()
 pufarina.printSummary()
+
+// ---- Initializers for classes -------
+
+class Vehicle {
+    let isElectric: Bool
+    
+    init(isElectric: Bool) {
+        self.isElectric = isElectric
+    }
+}
+
+class Car: Vehicle {
+    let isConvertible: Bool
+    
+//    init(isConvertible: Bool){
+//        self.isConvertible = isConvertible
+//    } this will not compile
+    
+    init(isElectric: Bool, isConvertible: Bool){
+        self.isConvertible = isConvertible
+        super.init(isElectric: isElectric)
+    }
+}
+
+let teslaX = Car(isElectric: true, isConvertible: false)
