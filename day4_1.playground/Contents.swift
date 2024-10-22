@@ -127,3 +127,13 @@ users.removeAll()
 print("Array is clear!")
 
 
+// ----- Variables inside classes ---------
+
+class Mac {
+    var name = "MacBook"
+}
+
+let mac = Mac() // does not affect if the object itself is an object
+mac.name = "MacBook Pro 14"
+print(mac.name)
+
