@@ -125,3 +125,15 @@ func getUser(id: Int) throws -> String {
 if let user = try?  getUser(id: 23) {
     print("User: \(user)")
 }
+
+// Checkpoint - 9
+
+func customRandom(arr: [Int]?) -> Int {
+    return arr?.randomElement() ?? Int.random(in: 1...100)
+}
+
+var arr: [Int]? = [1, 2, 3]
+var arr1: [Int]? = [Int]()
+print(customRandom(arr: arr))
+print(customRandom(arr: arr1))
+
