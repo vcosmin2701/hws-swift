@@ -102,3 +102,12 @@ let input = ""
 let num1 = Int(input) ?? 0
 print(num1)
 
+// Optional chaining
+
+let names = ["Arya", "Bran", "Robb", "Sansa"]
+let chosen = names.randomElement()?.uppercased() ?? "No one"
+print("Next in line: \(chosen)")
+
+var book1: Book? = nil
+let author1 = book1?.author?.first?.uppercased() ?? "A"
+print(author1)
